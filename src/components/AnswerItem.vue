@@ -4,7 +4,9 @@
     :key="answer.num"
     @click="checkUserAnswer(answer.num)"
   >
-    <span>{{answer.text}}</span>
+    <router-link :to="{ name: 'Answer', params: { num: currentQuestion } }">{{
+      answer.text
+    }}</router-link>
   </li>
 </template>
 
@@ -16,15 +18,21 @@ export default defineComponent({
   props: ['answers'],
   setup() {
     const store = useStore();
+
+    const currentQuestion = computed(() => store.state.currentQuestion);
     const rightAnswer = computed(() => store.getters.getRightAnswer);
+
     const checkUserAnswer = (num) => {
       if (num === rightAnswer.value) {
         store.commit('saveRightUserAnswer', num);
       }
+
+      store.commit('setUserCurrentAnswer', num);
     };
 
     return {
       checkUserAnswer,
+      currentQuestion,
     };
   },
 });

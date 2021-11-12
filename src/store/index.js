@@ -4,21 +4,25 @@ export default createStore({
   state: {
     currentQuestion: 1,
     question: 'Где эта дорога?',
-    answers: null,
+    answerVariants: null,
     feedbacks: null,
     rightAnswers: null,
-    userAnswers: [],
+    userRightAnswers: [],
+    userCurrentAnswer: null,
   },
   getters: {
-    getAnswers(state) {
+    getAnswerVariants(state) {
       return state.answers[state.currentQuestion];
     },
     getRightAnswer(state) {
       return state.rightAnswers[state.currentQuestion];
     },
+    getFeedback(state) {
+      return state.feedbacks[state.currentQuestion][state.userCurrentAnswer];
+    },
   },
   mutations: {
-    setAnswers(state, answers) {
+    setAnswerVariants(state, answers) {
       state.answers = answers;
     },
     setFeedbacks(state, feedbacks) {
@@ -28,8 +32,14 @@ export default createStore({
       state.rightAnswers = rightAnswers;
     },
     saveRightUserAnswer(state, num) {
-      state.userAnswers.push(num);
-    }
+      state.userRightAnswers.push(num);
+    },
+    setUserCurrentAnswer(state, num) {
+      state.userCurrentAnswer = num;
+    },
+    updateCurrentQuestion(state) {
+      state.currentQuestion += 1;
+    },
   },
   actions: {
   },

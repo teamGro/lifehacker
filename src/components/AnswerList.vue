@@ -2,7 +2,7 @@
   <ul>
     <answer-item :answers="currentAnswers"></answer-item>
   </ul>
-  <span>{{text}}</span>
+  <span>{{ text }}</span>
 </template>
 
 <script>
@@ -15,7 +15,7 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const currentQuestion = computed(() => store.state.currentQuestion);
-    const currentAnswers = computed(() => store.getters.getAnswers);
+    const currentAnswers = computed(() => store.getters.getAnswerVariants);
 
     return {
       currentQuestion,

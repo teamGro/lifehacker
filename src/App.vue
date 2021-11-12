@@ -5,7 +5,7 @@
 <script>
 import { defineComponent } from 'vue';
 import { useStore } from 'vuex';
-import Answers from '@/data/answers';
+import AnswerVariants from '@/data/answerVariants';
 import Feedbacks from '@/data/feedbacks';
 import RightAnswers from '@/data/rightAnswers';
 
@@ -13,7 +13,7 @@ export default defineComponent({
   setup() {
     const store = useStore();
 
-    store.commit('setAnswers', Answers);
+    store.commit('setAnswerVariants', AnswerVariants);
     store.commit('setFeedbacks', Feedbacks);
     store.commit('setRightAnswers', RightAnswers);
   },
