@@ -1,0 +1,33 @@
+.labels {
+    position: absolute;
+    z-index: 10;
+    padding-top: 11px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 11px;
+  
+    &__img {
+      &_logo {
+        width: 75px;
+      }
+      &_label {
+        width: 117px;
+      }
+    }
+}
+
+@media (min-width: 1280px) {
+    .labels {
+      position: absolute;
+      width: 100vw !important;
+
+      &__img {
+        &_logo {
+          width: 99px;
+        }
+        &_label {
+          width: 154px;
+        }
+      }
+    }
+  }

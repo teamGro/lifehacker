@@ -41,6 +41,7 @@ export default defineComponent({
   &__link {
     font-size: 14px;
     line-height: 22px;
+    font-weight: 400;
   }
 }
 

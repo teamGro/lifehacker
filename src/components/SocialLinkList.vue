@@ -17,15 +17,16 @@ import SocialLinkItem from '@/components/SocialLinkItem.vue';
 import fbIcon from '../assets/img/fbIcon.png';
 import twitterIcon from '../assets/img/twitterIcon.png';
 import vkIcon from '../assets/img/vkIcon.png';
+import links from '@/helpers/links';
 
 export default defineComponent({
   components: { SocialLinkItem },
   setup() {
     return {
       links: [
-        { icon: twitterIcon, alt: 'vk', link: '' },
-        { icon: vkIcon, alt: 'vk', link: '' },
-        { icon: fbIcon, alt: 'fb', link: '' },
+        { icon: twitterIcon, alt: 'twitter', link: links.twitter },
+        { icon: vkIcon, alt: 'vk', link: links.vk },
+        { icon: fbIcon, alt: 'fb', link: links.fb },
       ],
     };
   },
@@ -57,6 +58,12 @@ export default defineComponent({
     background-color: #7dbfff;
     background-repeat: no-repeat;
     background-position: center;
+
+    transition: background-color 0.3s linear;
+
+    &:hover {
+      background-color: #fff;
+    }
   }
 }
 </style>

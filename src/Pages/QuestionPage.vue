@@ -4,17 +4,11 @@
       class="question__header-wrapper page__header"
       :style="{ backgroundImage: `url('${image}')` }"
     >
-      <picture>
-        <source media="(min-width: 1280px)" :src="carMirror" />
-
-        <img
-          class="question__mirror page__mirror"
-          :src="carMirrorMobile"
-          alt=""
-        />
-      </picture>
+      <img class="question__mirror page__mirror" :src="carMirror" alt="" />
       <img class="wheel" :src="carView" alt="" />
-      <labels></labels>
+      <div class="page__labels">
+        <labels></labels>
+      </div>
     </div>
 
     <section class="question__section section">

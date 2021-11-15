@@ -27,3 +27,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="less">
+body {
+  font-family: "Open Sans";
+}
+</style>

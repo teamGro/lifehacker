@@ -1,12 +1,11 @@
 <template>
   <a
+    target="_blank"
     :href="link"
-    :style="{'backgroundImage': `url('${icon}')`}"
+    :style="{ backgroundImage: `url('${icon}')` }"
   >
-    <span>{{alt}}
-    </span>
+    <span>{{ alt }} </span>
   </a>
-
 </template>
 
 <script>
@@ -15,11 +14,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   props: ['icon', 'link', 'alt'],
   setup() {
-    return {
-      // icon: props.icon,
-      // link: props.link,
-      // alt: props.alt,
-    };
+    return {};
   },
 });
 </script>

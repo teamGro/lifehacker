@@ -1,4 +1,4 @@
-/* @font-face {
+@font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
@@ -23,6 +23,16 @@
   font-style: normal;
   font-weight: 700;
   src: 
+       url('../fonts/open-sans-v27-latin_cyrillic-800.woff2') format('woff2'), 
+       url('../fonts/open-sans-v27-latin_cyrillic-800.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: 
        url('../fonts/open-sans-v27-latin_cyrillic-700.woff2') format('woff2'), 
        url('../fonts/open-sans-v27-latin_cyrillic-700.woff') format('woff');
   font-display: swap;
@@ -35,7 +45,7 @@
   src: 
        url('../fonts/Play-Bold.ttf') format('truetype');
   font-display: swap;
-} */
+}
 
 html {
   width     : 100%;
