@@ -1,5 +1,4 @@
 .result {
-
     &__section {
         &_top {
             margin-top: 40px;
@@ -45,6 +44,14 @@
 
     color: #7dbfff;
     background-color: transparent;
+
+    &:hover path {
+        fill: #fff;
+    }
+
+    &:hover > span {
+        color: #fff;
+    }    
   }
 
   &__again-icon {
@@ -54,6 +61,14 @@
     background-image: url("../assets/img/retry.png");
     background-repeat: no-repeat;
     background-position: center;
+
+    & path {
+        transition: fill .3s linear;
+    }    
+  }
+
+  &__again-text {
+    transition: color .3s linear;
   }
 
   &__promo {
@@ -93,6 +108,10 @@
     padding-bottom: 25px;
     display: flex;
     flex-direction: column;
+  }
+
+  &__team {
+    position: relative;    
   }
 }
 
