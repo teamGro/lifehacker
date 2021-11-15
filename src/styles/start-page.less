@@ -16,18 +16,12 @@
         padding-top: 28px;
         padding-bottom: 23px;
       
-        font-size: 18px;
-        line-height: 20px;
-        letter-spacing: 1.5px;
-        text-align: center;
+       text-align: center;
       
         background-color: #004373;
       
-        &_upper {
-          text-transform: uppercase;
-          font-size: 33px;
-          line-height: 35px;
-          letter-spacing: 0;
+        &_img {
+          width: 288px;
         }
       }
 
@@ -73,14 +67,9 @@
       width: 635px;
     }
 
-    &__title {
-      font-size: 28px;
-      line-height: 35px;
-  
-      &_upper {
-        font-size: 48px;
-        line-height: 55px;
-      }
+    &__title_img {
+      width: 428px;
+
     }
 
     &__describe {
@@ -100,11 +89,12 @@
     &__footer {
       z-index: 10;
       position: absolute;
-      width: 100vw;
+      max-width: 100vw;
       margin-top: calc(100vh - 60px);
       flex-direction: row;
       justify-content: space-between;
-      padding: 0 125px;
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 }

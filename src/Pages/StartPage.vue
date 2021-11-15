@@ -3,8 +3,9 @@
   <header class="start-page__header"></header>
   <main class="start-page__main">
     <h1 class="start-page__title block">
-      Узнаете ли вы Россию <br />
-      <span class="start-page__title_upper">по дорогам?</span>
+      <!-- Узнаете ли вы Россию <br />
+      <span class="start-page__title_upper">по дорогам?</span> -->
+      <img class="start-page__title_img" :src="appTitle" alt="" />
     </h1>
     <section class="block start-page__describe">
       <div class="container start-page__container">
@@ -27,7 +28,7 @@
     </section>
   </main>
 
-  <footer class="start-page__footer">
+  <footer class="start-page__footer container">
     <social-link-list></social-link-list>
     <copyright></copyright>
   </footer>
@@ -39,12 +40,14 @@ import SocialLinkList from '@/components/SocialLinkList.vue';
 import Copyright from '@/components/Copyright.vue';
 import Labels from '@/components/Labels.vue';
 import links from '../helpers/links';
+import appTitle from '@/assets/img/appTitle.png';
 
 export default defineComponent({
   components: { SocialLinkList, Copyright, Labels },
   setup() {
     return {
       links,
+      appTitle,
     };
   },
 });
