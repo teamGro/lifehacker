@@ -5,23 +5,20 @@
     :key="answer.num"
     @click="checkUserAnswer(answer.num)"
   >
-    <router-link
-      class="answers__link"
-      :to="{ name: 'Answer', params: { num: currentQuestion } }"
-    >{{
-      answer.text
-    }}</router-link>
+    <a class="answers__link" v-html="answer.text"></a>
   </li>
 </template>
 
 <script>
 import { computed, defineComponent } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   props: ['answers'],
   setup() {
     const store = useStore();
+    const router = useRouter();
 
     const currentQuestion = computed(() => store.state.currentQuestion);
     const rightAnswer = computed(() => store.getters.getRightAnswer);
@@ -32,6 +29,7 @@ export default defineComponent({
       }
 
       store.commit('setUserCurrentAnswer', num);
+      router.push({ name: 'Answer', params: { num: currentQuestion.value } });
     };
 
     return {

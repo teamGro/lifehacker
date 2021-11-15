@@ -1,23 +1,21 @@
 <template>
+  <labels></labels>
+  <div class="shadow"></div>
   <main class="question page">
-    <div
-      class="question__header-wrapper page__header"
-      :style="{ backgroundImage: `url('${image}')` }"
-    >
-      <img class="question__mirror page__mirror" :src="carMirror" alt="" />
-      <img class="wheel" :src="carView" alt="" />
-      <div class="page__labels">
-        <labels></labels>
-      </div>
+    <div class="page__header" :style="{ backgroundImage: `url('${image}')` }">
+      <img class="page__mirror" :src="carMirror" alt="" />
+      <img class="page__wheel" :src="carView" alt="" />
+      <div class="page__labels"></div>
     </div>
 
-    <section class="question__section section">
-      <question-num class="question__num num"></question-num>
-      <h2 class="question__title">{{ question }}</h2>
-      <answer-list></answer-list>
+    <section class="container page__section">
+      <div class="question__content">
+        <question-num class="num"></question-num>
+        <h2 class="question__title">{{ question }}</h2>
+        <answer-list></answer-list>
+      </div>
     </section>
-
-    <copyright class="question__copyright page__copyright"></copyright>
+    <copyright class="page__copyright"></copyright>
   </main>
 </template>
 
@@ -52,29 +50,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="less">
-.question {
-  &__title {
-    margin-bottom: 29px;
-
-    font-family: "Play";
-    font-style: normal;
-    font-weight: bold;
-    font-size: 37px;
-    line-height: 43px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .question {
-    &__title {
-      margin-bottom: 20px;
-
-      font-size: 45px;
-      line-height: 52px;
-      text-align: center;
-    }
-  }
-}
-</style>

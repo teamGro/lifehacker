@@ -1,15 +1,4 @@
-.visually-hidden {
-    position: absolute !important;
-    clip    : rect(1px 1px 1px 1px);
-    clip    : rect(1px, 1px, 1px, 1px);
-    border  : 0 !important;
-    height  : 1px !important;
-    width   : 1px !important;
-    padding : 0 !important;
-    overflow: hidden;
-  }
-  
-  .container {
+.container {
     width    : 100%;
     max-width: 1600px;
     min-width: 280px;
@@ -31,9 +20,20 @@
       color: #fff;
     }
   }
+
+  .shadow {
+    position: absolute;
+    top: -10px;
+
+    width: 100%;
+    box-shadow: 0 10px 7px #000;
+    height: 10px;
+    z-index: 100000;
+  }
   
   .btn {
     padding: 16px 70px;
+    margin-bottom: 16px;
     box-shadow: 0px 4px 52px rgba(0, 39, 66, 0.9);
     border-radius: 3px;
   
@@ -65,24 +65,17 @@
   
     font-size: 16px;
     line-height: 24px;
-  }
-  
-  .section {
-    padding: 22px 16px 0;
-    margin-bottom: 16px;
+    font-weight: 400;
   }
   
   .page {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     overflow-y: auto;
     padding-bottom: 20px;
-  
-    &_result {
-      height: auto;
-      padding-bottom: 0;
-    }
   
     &__header {
       position: relative;
@@ -90,17 +83,32 @@
       border-bottom: 2px solid #fff;
   
       background-size: cover;
+      background-position: bottom;
     }
+
+    &__section {
+      padding-top: 22px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &_result {
+      height: auto;
+      padding-bottom: 0;
+    }  
   
     &__mirror {
       position: absolute;
       left: 50%;
-      // top: -6px;
       transform: translateX(-50%);
       width: 128px; 
     }
+
+    &__wheel {
+      display: none;
+    }
   
-    &__copyright {
+    &__copyright {      
       margin-top: auto;
     }
   
@@ -109,9 +117,7 @@
     }
   }
   
-  .wheel {
-    display: none;
-  }
+  
   
   @media(min-width: 1280px) {
     .num {
@@ -125,6 +131,10 @@
   
     .block {
       border-left: 2px solid #fff;
+    }
+
+    .shadow {
+      box-shadow: 0 10px 12px #000;
     }
   
     .btn {
@@ -144,8 +154,15 @@
         width: 50%;
         border-bottom: none;
         border-right: 2px solid #fff;
+        overflow: hidden;
   
         background-position: bottom;
+      }
+
+      &__section {
+        width: 50%;
+        padding-right: 80px;
+        padding-top: 80px;
       }
   
       &__copyright {
@@ -160,20 +177,15 @@
         right: 48px;
         width: 320px;
       }
-    }
-  
-    .section {
-      width: 50%;
-      padding: 78px 80px 0;
-    }
-  
-    .wheel {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-  
-      display: block;
-      width: auto;
-      height: auto;
-    }
+
+      &__wheel {
+        position: absolute;
+        left: 67px;
+        bottom: 30px;
+        display: block;
+        width: auto;
+        height: auto;
+        transform: scale(1.2);
+      }
+    }  
   }

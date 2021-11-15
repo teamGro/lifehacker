@@ -1,16 +1,13 @@
 <template>
+  <labels></labels>
+  <div class="shadow"></div>
   <main class="answer page">
     <div class="page__header" :style="{ backgroundImage: `url('${image}')` }">
-      <picture>
-        <source media="(max-width: 1280px)" :src="carMirrorMobile" />
-
-        <img class="question__mirror page__mirror" :src="carMirror" alt="" />
-        <img class="wheel" :src="carView" alt="" />
-      </picture>
-      <labels></labels>
+      <img class="page__mirror" :src="carMirror" alt="" />
+      <img class="page__wheel" :src="carView" alt="" />
     </div>
 
-    <section class="section">
+    <section class="container page__section">
       <question-num class="num"></question-num>
       <div class="answer__wrapper">
         <p class="answer__feedback">{{ feedback }}</p>
@@ -68,26 +65,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="less">
-.answer {
-  &__wrapper {
-    padding-left: 15px;
-    padding-right: 25px;
-  }
-  &__feedback {
-    margin-bottom: 24px;
-
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 26px;
-  }
-  &__comment {
-    margin-bottom: 40px;
-
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-</style>
