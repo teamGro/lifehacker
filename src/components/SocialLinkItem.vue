@@ -1,7 +1,7 @@
 <template>
   <a
     :href="link"
-    :style="{'background-image': icon}"
+    :style="{'backgroundImage': `url('${icon}')`}"
   >
     <span>{{alt}}
     </span>
@@ -23,3 +23,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="less" scoped>
+span {
+  display: none;
+}
+</style>

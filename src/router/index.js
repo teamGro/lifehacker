@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import StartPage from '../Pages/StartPage.vue';
 import QuestionPage from '../Pages/QuestionPage.vue';
 import AnswerPage from '../Pages/AnswerPage.vue';
+import ResultPage from '../Pages/ResultPage.vue';
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/answer/:num',
     name: 'Answer',
     component: AnswerPage,
+  },
+  {
+    path: '/result',
+    name: 'Result',
+    component: ResultPage,
   },
 ];
 

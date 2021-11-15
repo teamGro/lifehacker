@@ -1,10 +1,14 @@
 <template>
   <li
+    class="answers__item"
     v-for="answer in answers"
     :key="answer.num"
     @click="checkUserAnswer(answer.num)"
   >
-    <router-link :to="{ name: 'Answer', params: { num: currentQuestion } }">{{
+    <router-link
+      class="answers__link"
+      :to="{ name: 'Answer', params: { num: currentQuestion } }"
+    >{{
       answer.text
     }}</router-link>
   </li>
@@ -23,7 +27,7 @@ export default defineComponent({
     const rightAnswer = computed(() => store.getters.getRightAnswer);
 
     const checkUserAnswer = (num) => {
-      if (num === rightAnswer.value) {
+      if (num === rightAnswer.value.value) {
         store.commit('saveRightUserAnswer', num);
       }
 

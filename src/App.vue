@@ -3,25 +3,27 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { computed, defineComponent, watch } from 'vue';
 import { useStore } from 'vuex';
-import AnswerVariants from '@/data/answerVariants';
-import Feedbacks from '@/data/feedbacks';
-import RightAnswers from '@/data/rightAnswers';
+import { useRoute } from 'vue-router';
+import data from './data/data';
+import saveDataToStore from './helpers/saveDataToStore';
 
 export default defineComponent({
   setup() {
     const store = useStore();
+    const route = useRoute();
+    saveDataToStore(data, store);
+    const currentQuestion = computed(() => store.state.currentQuestion);
 
-    store.commit('setAnswerVariants', AnswerVariants);
-    store.commit('setFeedbacks', Feedbacks);
-    store.commit('setRightAnswers', RightAnswers);
+    watch(route, () => {
+      if (
+        (route.name === 'Answer' || route.name === 'Question')
+        && Number(route.params.num) !== currentQuestion.value
+      ) {
+        store.commit('updateCurrentQuestion', Number(route.params.num));
+      }
+    });
   },
 });
 </script>
-
-<style lang="less">
-body {
-  background-color: #004373;
-}
-</style>
