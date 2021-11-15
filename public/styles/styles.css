@@ -67,6 +67,7 @@ body {
   padding   : 0;
   width     : 100%;
   max-width : 100%;
+  font-weight: 400;
   /* overflow-x: hidden; */
 
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;

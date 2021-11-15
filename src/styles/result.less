@@ -1,0 +1,148 @@
+.result {
+
+    &__section {
+        &_top {
+            margin-top: 40px;
+            border-bottom: 2px solid #fff;
+        }
+
+        &_bottom {
+            margin-top: 25px;
+        }
+    }
+
+  &__title {
+    margin-bottom: 16px;
+
+    font-family: "Play";
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  &__text {
+    margin-bottom: 40px;
+
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  &__btns-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 27px;
+  }
+
+  &__social {
+    margin-bottom: 27px;
+  }
+
+  &__again-btn {
+    display: flex;
+    align-items: center;
+
+    color: #7dbfff;
+    background-color: transparent;
+  }
+
+  &__again-icon {
+    margin-right: 16px;
+    width: 40px;
+    height: 35px;
+    background-image: url("../assets/img/retry.png");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__promo {
+    margin-bottom: 40px;
+
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+
+  &__code {
+      color: #a4efec;
+      display: inline-block;
+      padding: 2px 4px;
+      border-radius: 5px;
+      background-color: #002b57;
+  }
+
+  &__date-end {
+      color: #a4efec;
+  }
+
+  &__buy-btn {
+    margin-bottom: 35px;
+    text-align: center;
+  }
+
+  &__team {
+    margin-bottom: 40px;
+
+    text-align: center;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  &__footer {
+    padding-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1280px) {
+    .result {
+        position: relative;
+        
+      &__body {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+      }
+  
+      &__section {
+        padding-top: 120px;
+        width: 100%;
+  
+        &_bottom {
+          padding-top: 25px;
+        }
+      }
+  
+      &__btns-wrapper {
+        flex-direction: row;
+      }
+  
+      &__social {
+        order: 1;
+        margin-bottom: 0;
+        margin-left: 52px;
+      }
+  
+      &__buy-btn {
+        text-align: left;
+      }
+
+      &__btn {
+          padding-left: 20px;
+          padding-right: 20px;
+      }
+
+      &__team {
+          margin-bottom: 0;
+      }
+
+      &__footer {
+        margin-top: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+      }
+    }
+  }
