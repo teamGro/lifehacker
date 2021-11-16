@@ -3,6 +3,7 @@ import StartPage from '../Pages/StartPage.vue';
 import GamePage from '../Pages/GamePage.vue';
 import ResultPage from '../Pages/ResultPage.vue';
 import NotFoundPage from '@/Pages/NotFoundPage.vue';
+import config from '../../vue.config';
 
 const routes = [
   {
@@ -28,7 +29,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(config.publicPath),
   routes,
 });
 
