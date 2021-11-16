@@ -1,4 +1,5 @@
 <template>
+  <preloader v-if="isLoading"></preloader>
   <labels></labels>
   <header class="start-page__header"></header>
   <main class="start-page__main">
@@ -33,19 +34,32 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import SocialLinkList from '@/components/SocialLinkList.vue';
 import Copyright from '@/components/Copyright.vue';
 import Labels from '@/components/Labels.vue';
+import Preloader from '@/components/Preloader.vue';
 import links from '@/helpers/links';
 import appTitle from '@/assets/img/appTitle.png';
 
 export default defineComponent({
-  components: { SocialLinkList, Copyright, Labels },
+  components: {
+    SocialLinkList,
+    Copyright,
+    Labels,
+    Preloader,
+  },
   setup() {
+    const isLoading = ref(true);
+
+    setTimeout(() => {
+      isLoading.value = false;
+    }, 2000);
+
     return {
       links,
       appTitle,
+      isLoading,
     };
   },
 });
