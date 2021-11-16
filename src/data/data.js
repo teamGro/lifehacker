@@ -32,6 +32,7 @@ export default {
     ],
     comment: { num: 1, text: '' },
     rightAnswer: { num: 1, value: 3 },
+    image: '/img/question1.jpg',
   },
   2: {
     answerOptions: [{
@@ -67,6 +68,7 @@ export default {
     Ищите промокод в конце теста.`,
     },
     rightAnswer: { num: 2, value: 1 },
+    image: '/img/question2.jpg',
   },
   3: {
     answerOptions: [{
@@ -101,6 +103,7 @@ export default {
       контроля.`,
     },
     rightAnswer: { num: 3, value: 1 },
+    image: '/img/question3.jpg',
   },
   4: {
     answerOptions: [{
@@ -132,6 +135,7 @@ export default {
       text: '',
     },
     rightAnswer: { num: 4, value: 2 },
+    image: '/img/question4.jpg',
   },
   5: {
     answerOptions: [{
@@ -166,6 +170,7 @@ export default {
       `,
     },
     rightAnswer: { num: 5, value: 2 },
+    image: '/img/question5.jpg',
   },
   6: {
     answerOptions: [{
@@ -197,6 +202,7 @@ export default {
       text: '',
     },
     rightAnswer: { num: 6, value: 1 },
+    image: '/img/question6.jpg',
   },
   resultPromo: `<b>Чтобы любая дорога была для вас безопасной</b>, следите за
   качеством резины и переобувайтесь вовремя. С зимними шинами <b>Cordiant</b> ваша
@@ -210,14 +216,17 @@ export default {
     {
       title: 'Я — географ-экстрасенс',
       text: 'Узнать российские дороги? Несите задачку посложнее! Если нужно, я вам по фото и географические координаты назову.',
+      image: '/img/result1.jpg',
     },
     {
       title: 'Я — начинающий топограф',
       text: 'Узнаю российские дороги без регистрации и СМС. Но иногда всё же путаюсь — эти зимние трассы так похожи.',
+      image: '/img/result2.jpg',
     },
     {
       title: 'Я — дорожный романтик',
       text: 'Да кто вообще смотрит под ноги! Я считаю звёзды и ловлю снежинки, а не изучаю асфальт. Ой, смотрите: облако похоже на слоника!',
+      image: '/img/result3.jpg',
     },
   ],
 };

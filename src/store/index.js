@@ -1,13 +1,4 @@
 import { createStore } from 'vuex';
-import question1 from '../assets/img/question1.jpg';
-import question2 from '../assets/img/question2.jpg';
-import question3 from '../assets/img/question3.jpg';
-import question4 from '../assets/img/question4.jpg';
-import question5 from '../assets/img/question5.jpg';
-import question6 from '../assets/img/question6.jpg';
-import result1 from '../assets/img/result1.jpg';
-import result2 from '../assets/img/result2.jpg';
-import result3 from '../assets/img/result3.jpg';
 
 export default createStore({
   state: {
@@ -18,7 +9,7 @@ export default createStore({
     feedbacks: [],
     comments: [],
     rightAnswers: [],
-    images: [question1, question2, question3, question4, question5, question6],
+    images: [],
     resultPromo: null,
     results: null,
     userRightAnswers: {},
@@ -76,6 +67,9 @@ export default createStore({
     setComments(state, comment) {
       state.comments.push(comment);
     },
+    setImages(state, image) {
+      state.images.push(image);
+    },
     setRightAnswers(state, rightAnswers) {
       state.rightAnswers.push(rightAnswers);
     },
@@ -93,11 +87,6 @@ export default createStore({
     },
     setResults(state, results) {
       state.results = results;
-      const resultsImg = [result1, result2, result3];
-      state.results = state.results.map((item, i) => ({
-        ...item,
-        image: resultsImg[i],
-      }));
     },
     resetUserProgress(state) {
       state.currentQuestion = 1;

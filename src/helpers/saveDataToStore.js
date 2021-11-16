@@ -26,6 +26,9 @@ export default function saveDataToStore(data, store) {
           case 'rightAnswer':
             store.commit('setRightAnswers', item.rightAnswer);
             break;
+          case 'image':
+            store.commit('setImages', item.image);
+            break;
           default:
             break;
         }
