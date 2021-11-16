@@ -11,7 +11,7 @@
 <script>
 import { defineComponent, computed } from 'vue';
 import { useStore } from 'vuex';
-import AnswerList from './AnswerList.vue';
+import AnswerList from '@/components/AnswerList.vue';
 import QuestionNum from '@/components/QuestionNum.vue';
 
 export default defineComponent({

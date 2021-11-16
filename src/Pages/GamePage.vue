@@ -3,20 +3,9 @@
   <div class="shadow"></div>
   <main class="answer page">
     <transition name="fade">
-      <div
-        class="page__header"
-        :style="{ backgroundImage: `url('${image}')` }"
-      >
-        <img
-          class="page__mirror"
-          :src="faceInMirror"
-          alt=""
-        />
-        <img
-          class="page__wheel"
-          :src="carView"
-          alt=""
-        />
+      <div class="page__header" :style="{ backgroundImage: `url('${image}')` }">
+        <img class="page__mirror" :src="faceInMirror" alt="" />
+        <img class="page__wheel" :src="carView" alt="" />
       </div>
     </transition>
 
@@ -34,14 +23,14 @@ import {
   defineComponent, computed, ref, onBeforeUpdate,
 } from 'vue';
 import { useStore } from 'vuex';
-import QuestionView from '../components/QuestionView.vue';
-import AnswerView from '../components/AnswerView.vue';
-import Labels from '../components/Labels.vue';
-import Copyright from '../components/Copyright.vue';
-import carMirror from '../assets/img/carMirror.png';
-import carMirrorRight from '../assets/img/carMirrorRight.png';
-import carMirrorWrong from '../assets/img/carMirrorWrong.png';
-import carView from '../assets/img/carView.png';
+import QuestionView from '@/components/QuestionView.vue';
+import AnswerView from '@/components/AnswerView.vue';
+import Labels from '@/components/Labels.vue';
+import Copyright from '@/components/Copyright.vue';
+import carMirror from '@/assets/img/carMirror.png';
+import carMirrorRight from '@/assets/img/carMirrorRight.png';
+import carMirrorWrong from '@/assets/img/carMirrorWrong.png';
+import carView from '@/assets/img/carView.png';
 
 export default defineComponent({
   components: {

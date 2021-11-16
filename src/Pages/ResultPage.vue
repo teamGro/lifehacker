@@ -7,15 +7,14 @@
       :style="{ backgroundImage: `url('${result.image}')` }"
     ></div>
     <div class="result__body">
-      <section class="page__section container result__section result__section_top">
+      <section
+        class="page__section container result__section result__section_top"
+      >
         <h2 class="result__title">{{ result.title }}</h2>
         <p class="result__text">{{ result.text }}</p>
         <div class="result__btns-wrapper">
           <social-link-list class="result__social"></social-link-list>
-          <button
-            @click="tryAgain"
-            class="result__again-btn"
-          >
+          <button @click="tryAgain" class="result__again-btn">
             <svg
               class="result__again-icon"
               width="40"
@@ -50,16 +49,14 @@
           </button>
         </div>
       </section>
-      <section class="page__section container result__section result__section_bottom">
-        <p
-          class="result__promo"
-          v-html="resultPromo"
-        ></p>
+      <section
+        class="page__section container result__section result__section_bottom"
+      >
+        <p class="result__promo" v-html="resultPromo"></p>
         <div class="result__buy-btn">
-          <a
-            href="#"
-            class="btn result__btn"
-          >Купить шины со скидкой</a>
+          <a :href="links.sales" target="_blank" class="btn result__btn"
+            >Купить шины со скидкой</a
+          >
         </div>
       </section>
       <div class="result__footer container">
@@ -69,16 +66,11 @@
             class="link result__team"
             @mouseover="showTeam"
             @mouseleave="hideTeam"
-          >Команда проекта</a>
+            >Команда проекта</a
+          >
           <transition name="fade">
-            <table
-              class="team__table"
-              v-if="isTeamVisible"
-            >
-              <tr
-                v-for="(item, i) in team"
-                :key="i"
-              >
+            <table class="team__table" v-if="isTeamVisible">
+              <tr v-for="(item, i) in team" :key="i">
                 <td class="team__cell team__cell_right">{{ item.position }}</td>
                 <td class="team__cell">{{ item.fullName }}</td>
               </tr>
@@ -93,14 +85,13 @@
 </template>
 
 <script>
-import {
-  computed, defineComponent, reactive, ref,
-} from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
-import Labels from '../components/Labels.vue';
+import Labels from '@/components/Labels.vue';
 import SocialLinkList from '@/components/SocialLinkList.vue';
-import Copyright from '../components/Copyright.vue';
+import Copyright from '@/components/Copyright.vue';
+import links from '@/helpers/links';
 
 export default defineComponent({
   components: { Labels, SocialLinkList, Copyright },
@@ -108,7 +99,7 @@ export default defineComponent({
     const store = useStore();
     const router = useRouter();
     const isTeamVisible = ref(false);
-    const team = reactive([
+    const team = [
       { position: 'Креатив', fullName: 'Сергей Габер' },
       { position: 'Редактор', fullName: 'Маша Пчелкина' },
       { position: 'Автор', fullName: 'Тоня Рубцова' },
@@ -118,7 +109,7 @@ export default defineComponent({
       { position: 'Аналитик', fullName: 'Валерия Нечаева' },
       { position: 'Менеджер проекта', fullName: 'Яна Скрипичникова' },
       { position: 'Менеджер по продажам', fullName: 'Галина Корецкая' },
-    ]);
+    ];
 
     const showTeam = () => {
       isTeamVisible.value = true;
@@ -143,6 +134,7 @@ export default defineComponent({
       tryAgain,
       showTeam,
       hideTeam,
+      links,
     };
   },
 });

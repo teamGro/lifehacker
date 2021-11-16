@@ -23,22 +23,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="less">
-.copyright {
-  display: flex;
-  justify-content: center;
-
-  &__link {
-    font-size: 13px;
-  }
-
-  &__symbol {
-    margin: 0 5px;
-  }
-
-  &__text {
-    margin-left: 3px;
-  }
-}
-</style>
