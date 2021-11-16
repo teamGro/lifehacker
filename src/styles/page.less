@@ -47,10 +47,37 @@
     }
   }
 
+  @media(min-width: 576px) {
+    .page {
+      &__header {
+        height: 30vh;
+      }
+    }
+  }
+
+  @media(min-width: 992px) {
+    .page {
+      &__header {
+        height: 50vh;
+      }
+
+      &__mirror {
+        left: auto;
+        transform: translate(0);
+        right: 48px;
+        width: 320px;
+      }
+    }
+  }
+
   @media(min-width: 1280px) {
     .page {
         flex-direction: row;
         padding-bottom: 0;
+
+        &__state {
+          width: 50%;
+        }
     
         &__header {
           height: 100vh;
@@ -63,7 +90,7 @@
         }
   
         &__section {
-          width: 50%;
+          // width: 50%;
           padding-right: 80px;
           padding-top: 80px;
         }
@@ -74,12 +101,7 @@
           margin-top: calc(100vh - 32px);
         }
     
-        &__mirror {
-          left: auto;
-          transform: translate(0);
-          right: 48px;
-          width: 320px;
-        }
+        
   
         &__wheel {
           position: absolute;

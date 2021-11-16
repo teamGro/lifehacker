@@ -7,15 +7,15 @@
       :style="{ backgroundImage: `url('${result.image}')` }"
     ></div>
     <div class="result__body">
-      <section
-        class="page__section container result__section result__section_top"
-      >
+      <section class="page__section container result__section result__section_top">
         <h2 class="result__title">{{ result.title }}</h2>
         <p class="result__text">{{ result.text }}</p>
         <div class="result__btns-wrapper">
           <social-link-list class="result__social"></social-link-list>
-          <button @click="tryAgain" class="result__again-btn">
-            <!-- <span ></span> -->
+          <button
+            @click="tryAgain"
+            class="result__again-btn"
+          >
             <svg
               class="result__again-icon"
               width="40"
@@ -50,12 +50,16 @@
           </button>
         </div>
       </section>
-      <section
-        class="page__section container result__section result__section_bottom"
-      >
-        <p class="result__promo" v-html="resultPromo"></p>
+      <section class="page__section container result__section result__section_bottom">
+        <p
+          class="result__promo"
+          v-html="resultPromo"
+        ></p>
         <div class="result__buy-btn">
-          <a href="#" class="btn result__btn">Купить шины со скидкой</a>
+          <a
+            href="#"
+            class="btn result__btn"
+          >Купить шины со скидкой</a>
         </div>
       </section>
       <div class="result__footer container">
@@ -65,14 +69,21 @@
             class="link result__team"
             @mouseover="showTeam"
             @mouseleave="hideTeam"
-            >Команда проекта</a
-          >
-          <table class="team__table" v-if="isTeamVisible">
-            <tr v-for="(item, i) in team" :key="i">
-              <td class="team__cell team__cell_right">{{ item.position }}</td>
-              <td class="team__cell">{{ item.fullName }}</td>
-            </tr>
-          </table>
+          >Команда проекта</a>
+          <transition name="fade">
+            <table
+              class="team__table"
+              v-if="isTeamVisible"
+            >
+              <tr
+                v-for="(item, i) in team"
+                :key="i"
+              >
+                <td class="team__cell team__cell_right">{{ item.position }}</td>
+                <td class="team__cell">{{ item.fullName }}</td>
+              </tr>
+            </table>
+          </transition>
         </div>
 
         <copyright></copyright>
@@ -119,7 +130,7 @@ export default defineComponent({
 
     const tryAgain = () => {
       store.commit('resetUserProgress');
-      router.push({ name: 'Question', params: { num: 1 } });
+      router.push({ name: 'Game', params: { num: 1 } });
     };
 
     const result = computed(() => store.getters.getResult);
@@ -138,4 +149,13 @@ export default defineComponent({
 </script>
 
 <style lang="less">
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

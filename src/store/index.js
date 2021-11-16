@@ -23,6 +23,8 @@ export default createStore({
     results: null,
     userRightAnswers: {},
     userCurrentAnswer: null,
+    isUserRight: null,
+    gamePosition: 'question',
   },
   getters: {
     getAnswerOptions(state) {
@@ -100,6 +102,12 @@ export default createStore({
     resetUserProgress(state) {
       state.currentQuestion = 1;
       state.userRightAnswers = {};
+    },
+    setAnswerState(state, result) {
+      state.isUserRight = result;
+    },
+    updateGamePosition(state, position) {
+      state.gamePosition = position;
     },
   },
   actions: {

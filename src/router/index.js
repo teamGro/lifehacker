@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import StartPage from '../Pages/StartPage.vue';
-import QuestionPage from '../Pages/QuestionPage.vue';
-import AnswerPage from '../Pages/AnswerPage.vue';
+import GamePage from '../Pages/GamePage.vue';
 import ResultPage from '../Pages/ResultPage.vue';
 
 const routes = [
@@ -11,14 +10,9 @@ const routes = [
     component: StartPage,
   },
   {
-    path: '/question/:num',
-    name: 'Question',
-    component: QuestionPage,
-  },
-  {
-    path: '/answer/:num',
-    name: 'Answer',
-    component: AnswerPage,
+    path: '/game/:num',
+    name: 'Game',
+    component: GamePage,
   },
   {
     path: '/result',

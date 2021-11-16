@@ -5,13 +5,21 @@
     <h1 class="start-page__title block">
       <!-- Узнаете ли вы Россию <br />
       <span class="start-page__title_upper">по дорогам?</span> -->
-      <img class="start-page__title_img" :src="appTitle" alt="" />
+      <img
+        class="start-page__title_img"
+        :src="appTitle"
+        alt=""
+      />
     </h1>
     <section class="block start-page__describe">
       <div class="container start-page__container">
         <p class="start-page__para">
           Мы составили этот тест вместе с производителем шин
-          <a target="_blank" :href="links.cordiant" class="link">Cordiant</a>,
+          <a
+            target="_blank"
+            :href="links.cordiant"
+            class="link"
+          >Cordiant</a>,
           чтобы вы проверили, сможете ли отличить российские дороги от
           остальных. Активируйте внутреннего Шерлока и вперёд! Пройдёте тест до
           конца — получите <span>скидку 15%</span> на зимнюю резину.
@@ -20,9 +28,8 @@
           <router-link
             class="btn start-page__btn"
             tag="button"
-            :to="{ name: 'Question', params: { num: 1 } }"
-            >Пройти тест!</router-link
-          >
+            :to="{ name: 'Game', params: { num: 1 } }"
+          >Пройти тест!</router-link>
         </div>
       </div>
     </section>

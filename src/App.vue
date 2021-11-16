@@ -17,10 +17,7 @@ export default defineComponent({
     const currentQuestion = computed(() => store.state.currentQuestion);
 
     watch(route, () => {
-      if (
-        (route.name === 'Answer' || route.name === 'Question')
-        && Number(route.params.num) !== currentQuestion.value
-      ) {
+      if (route.name === 'Game' && Number(route.params.num) !== currentQuestion.value) {
         store.commit('updateCurrentQuestion', Number(route.params.num));
       }
     });
