@@ -1,4 +1,5 @@
 <template>
+  <preloader v-if="isLoading"></preloader>
   <labels></labels>
   <div class="shadow"></div>
   <main class="page page_result result">
@@ -91,10 +92,16 @@ import { useRouter } from 'vue-router';
 import Labels from '@/components/Labels.vue';
 import SocialLinkList from '@/components/SocialLinkList.vue';
 import Copyright from '@/components/Copyright.vue';
+import Preloader from '../components/Preloader.vue';
 import links from '@/helpers/links';
 
 export default defineComponent({
-  components: { Labels, SocialLinkList, Copyright },
+  components: {
+    Labels,
+    SocialLinkList,
+    Copyright,
+    Preloader,
+  },
   setup() {
     const store = useStore();
     const router = useRouter();
@@ -110,6 +117,12 @@ export default defineComponent({
       { position: 'Менеджер проекта', fullName: 'Яна Скрипичникова' },
       { position: 'Менеджер по продажам', fullName: 'Галина Корецкая' },
     ];
+
+    const isLoading = ref(true);
+
+    setTimeout(() => {
+      isLoading.value = false;
+    }, 2000);
 
     const showTeam = () => {
       isTeamVisible.value = true;
@@ -135,6 +148,7 @@ export default defineComponent({
       showTeam,
       hideTeam,
       links,
+      isLoading,
     };
   },
 });

@@ -1,4 +1,11 @@
 import { createStore } from 'vuex';
+import result1 from '../assets/img/result1.jpg';
+import result2 from '../assets/img/result2.jpg';
+import result3 from '../assets/img/result3.jpg';
+
+import carMirror from '@/assets/img/carMirror.png';
+import carMirrorRight from '@/assets/img/carMirrorRight.png';
+import carMirrorWrong from '@/assets/img/carMirrorWrong.png';
 
 export default createStore({
   state: {
@@ -16,6 +23,11 @@ export default createStore({
     userCurrentAnswer: null,
     isUserRight: null,
     gamePosition: 'question',
+    mirror: {
+      normal: carMirror,
+      right: carMirrorRight,
+      wrong: carMirrorWrong,
+    },
   },
   getters: {
     getAnswerOptions(state) {
@@ -87,6 +99,11 @@ export default createStore({
     },
     setResults(state, results) {
       state.results = results;
+      const images = [result1, result2, result3];
+      state.results = state.results.map((item, i) => ({
+        ...item,
+        image: images[i],
+      }));
     },
     resetUserProgress(state) {
       state.currentQuestion = 1;

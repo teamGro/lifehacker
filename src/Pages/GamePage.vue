@@ -1,4 +1,5 @@
 <template>
+  <preloader v-if="isLoading"></preloader>
   <labels></labels>
   <div class="shadow"></div>
   <main class="answer page">
@@ -27,9 +28,7 @@ import QuestionView from '@/components/QuestionView.vue';
 import AnswerView from '@/components/AnswerView.vue';
 import Labels from '@/components/Labels.vue';
 import Copyright from '@/components/Copyright.vue';
-import carMirror from '@/assets/img/carMirror.png';
-import carMirrorRight from '@/assets/img/carMirrorRight.png';
-import carMirrorWrong from '@/assets/img/carMirrorWrong.png';
+import Preloader from '@/components/Preloader.vue';
 import carView from '@/assets/img/carView.png';
 
 export default defineComponent({
@@ -38,20 +37,27 @@ export default defineComponent({
     Labels,
     Copyright,
     AnswerView,
+    Preloader,
   },
   setup() {
     const store = useStore();
     const isUserRight = computed(() => store.state.isUserRight);
     const gamePosition = computed(() => store.state.gamePosition);
+    const isLoading = ref(true);
 
-    const faceInMirror = ref(carMirror);
+    setTimeout(() => {
+      isLoading.value = false;
+    }, 2000);
+
+    const { mirror } = store.state;
+    const faceInMirror = ref(mirror.normal);
     onBeforeUpdate(() => {
       if (isUserRight.value && gamePosition.value === 'answer') {
-        faceInMirror.value = carMirrorRight;
+        faceInMirror.value = mirror.right;
       } else if (!isUserRight.value && gamePosition.value === 'answer') {
-        faceInMirror.value = carMirrorWrong;
+        faceInMirror.value = mirror.wrong;
       } else {
-        faceInMirror.value = carMirror;
+        faceInMirror.value = mirror.normal;
       }
     });
 
@@ -60,6 +66,7 @@ export default defineComponent({
       carView,
       faceInMirror,
       gamePosition: computed(() => store.state.gamePosition),
+      isLoading,
     };
   },
 });
